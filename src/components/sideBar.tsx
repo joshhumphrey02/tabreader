@@ -17,8 +17,8 @@ export default function SideBar() {
 	useEffect(() => {
 		gsap.fromTo(
 			'.link',
-			{ opacity: 0, x: 100 }, // Start state
-			{ opacity: 1, x: 0, stagger: 0.2, duration: 1.5, ease: 'power2.out' } // End state
+			{ opacity: 0, x: 1000 },
+			{ opacity: 1, x: 0, stagger: 0.2, duration: 2, ease: 'power2.out' } // End state
 		);
 	}, [isOpen]);
 	return (

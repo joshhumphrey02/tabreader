@@ -4,8 +4,17 @@ import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 import SideBar from '@/components/sideBar';
+import { useEffect } from 'react';
+import gsap from 'gsap';
 
 function App() {
+	useEffect(() => {
+		gsap.fromTo(
+			'.plan',
+			{ opacity: 0, y: 1000 },
+			{ opacity: 1, y: 0, stagger: 0.2, duration: 2.5, ease: 'bounce.out' }
+		);
+	}, []);
 	return (
 		<>
 			<div className="min-h-screen overflow-y-hidden">
@@ -38,12 +47,12 @@ function App() {
 								Get Exclusive offers on purchase of any plans
 							</p>
 							<div className="flex justify-center items-center gap-x-3 ">
-								<div className="flex items-center gap-x-3 rounded-3xl px-4 border border-border">
+								<div className="flex items-center gap-x-3 overflow-hidden rounded-3xl px-4 border border-border">
 									<Send />
 									<Input
 										type="text"
 										placeholder="Your Email"
-										className="border-none focus-visible:ring-0 focus-visible:ring-transparent "
+										className="border-none focus:bg-transparent focus-visible:ring-0 focus-visible:ring-transparent "
 									/>
 								</div>
 								<Button className=" rounded-3xl">Sign up</Button>
@@ -63,7 +72,7 @@ function App() {
 								<Card
 									key={plan.id}
 									className={cn(
-										'w-full min-h-[15rem] px-6 py-4 rounded-xl flex flex-col',
+										'w-full min-h-[15rem] plan px-6 py-4 rounded-xl flex flex-col',
 										plan.color
 									)}>
 									<div className="flex-1 space-y-2">
